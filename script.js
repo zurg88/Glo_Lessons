@@ -5,6 +5,6 @@ let money,
 	mission, 
 	period;
 
-	alert ('hello, Andru!');
+alert ('hello, Andru!');
 
-	console.log('how are you&');
+console.log('how are you?');

@@ -1,5 +1,5 @@
 let money = 10000;
-let	income = 5000;
+let	income = 'Профессионально садится на катусы';
 let	addExpenses = 'коммуналка, ТО автомобиля, кофе, уксус';
 let	deposit = true;
 let	mission = 1000000;

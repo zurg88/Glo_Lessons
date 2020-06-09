@@ -6,12 +6,6 @@ let	addExpenses = 'коммуналка, ТО автомобиля, кофе, у
 let	deposit = true;
 let	mission = 1000000;
 let	period = 8;
-let expenses1 = '';
-let expenses2 = '';
-let amount1 = 0;
-let amount2 = 0;
-let budgetMonth = +0;
-let target = 0;
 
 
 console.log( typeof(money) );
@@ -32,25 +26,25 @@ console.log( addExpenses.toLocaleLowerCase().split(', ') );
 
  deposit = confirm('Есть ли у вас депозит в банке?');
 
- expenses1 = prompt('Обязательная статья расходов' + '');
+ let expenses1 = prompt('Обязательная статья расходов' + '');
 
- amount1 = +prompt('Во сколько это обойдётся?');
+ let amount1 = +prompt('Во сколько это обойдётся?');
 
- expenses2 = prompt('Вторая не менее важная статья расходов?' + '');
+ let expenses2 = prompt('Вторая не менее важная статья расходов?' + '');
 
- amount2 = +prompt('Во сколько это обойдётся?');
+ let amount2 = +prompt('Во сколько это обойдётся?');
 
- budgetMonth = money - amount1 - amount2;
+ let budgetMonth = +money - amount1 - amount2;
 
- console.log('Бюджет на месяц равен' + budgetMonth);
+ console.log('Бюджет на месяц равен ' + budgetMonth);
 
- target = Math.round(mission / budgetMonth);
+ let target = Math.round(mission / budgetMonth);
 
  if (target < 0) {
 	console.log('Ой ёёёё....');
  }
 
- console.log('Цель будет достигнута за ' + target + 'месяцев');
+ console.log('Цель будет достигнута за ' + target + ' месяцев');
 
  let budgetDay = Math.floor(budgetMonth / 30);
 

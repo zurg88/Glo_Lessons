@@ -1,30 +1,25 @@
 'use strict';
 
-let money = 10000;
 let	income = 'Профессионально садится на катусы';
-let	addExpenses = 'коммуналка, ТО автомобиля, кофе, уксус';
-let	deposit = true;
 let	mission = 1000000;
 let	period = 8;
 
 
-console.log( typeof(money) );
-console.log( typeof(income) );
-console.log( typeof(deposit) );
 
-console.log(addExpenses.length);
 
 console.log( 'Период равен ' + period + ' месяцев' );
 
-console.log( addExpenses.toLocaleLowerCase().split(', ') );
+
 
 // Lesson - 3
 
- money =  +prompt('Каков, Андрей, Ваш месячный доход?');
+let money =  +prompt('Каков, Андрей, Ваш месячный доход?');
 
- addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую' + '');
+let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую' + '');
+console.log( addExpenses.toLocaleLowerCase().split(', ') );
+console.log(addExpenses.length);
 
- deposit = confirm('Есть ли у вас депозит в банке?');
+ let deposit = confirm('Есть ли у вас депозит в банке?');
 
  let expenses1 = prompt('Обязательная статья расходов' + '');
 

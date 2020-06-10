@@ -1,7 +1,6 @@
 'use strict';
 
 let	income = 'Профессионально садится на катусы';
-let	deposit = true;
 let	mission = 1000000;
 let	period = 8;
 
@@ -10,7 +9,7 @@ let	period = 8;
 
  let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую' + '');
 
- deposit = confirm('Есть ли у вас депозит в банке?');
+ let deposit = confirm('Есть ли у вас депозит в банке?');
 
  let expenses1 = prompt('Обязательная статья расходов' + '');
 

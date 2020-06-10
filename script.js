@@ -1,13 +1,12 @@
 'use strict';
 
-let money = 10000;
 let	income = 'Профессионально садится на катусы';
 let	deposit = true;
 let	mission = 1000000;
 let	period = 8;
 
 
- money =  +prompt('Каков, Андрей, Ваш месячный доход?');
+ let money =  +prompt('Каков, Андрей, Ваш месячный доход?');
 
  let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую' + '');
 

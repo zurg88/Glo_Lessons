@@ -6,18 +6,17 @@ let	period = 8;
 
 
 
-
-console.log( 'Период равен ' + period + ' месяцев' );
-
-
-
 // Lesson - 3
 
 let money =  +prompt('Каков, Андрей, Ваш месячный доход?');
 
 let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую' + '');
+
 console.log( addExpenses.toLocaleLowerCase().split(', ') );
+
 console.log(addExpenses.length);
+
+console.log( 'Период равен ' + period + ' месяцев' );
 
  let deposit = confirm('Есть ли у вас депозит в банке?');
 

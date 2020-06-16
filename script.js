@@ -45,17 +45,14 @@ let appData = {
 		let expenses;
 		for (let i = 0; i < 2; i++) {
 			expenses = prompt('Обязательная статья расходов', ' купить зебру ');
-			amount = +prompt(' Во сколько это обойдётся? ');
-			appData.expenses[expenses] = amount;
 			
 			do  {
 				amount = prompt('Во сколько это обойдётся?');
 			}
 			while( !isNumber(amount) ); 
-			
-			
+
+			appData.expenses[expenses] = amount;
 		}
-		console.log(appData.expenses);
 		return appData.expenses;
 	},
 
@@ -64,8 +61,6 @@ let appData = {
 	getBudget: function () {
 		appData.budgetMonth = appData.budget - appData.expensesMonth; 
 		appData.budgetDay = appData.budgetMonth / 30;
-		console.log(appData.budget);
-		console.log(appData.expensesMonth);
 	},
 
 	getTargetMonth: function () {
@@ -99,6 +94,6 @@ let appData = {
  appData.getBudget();
 
 
-console.log(appData.expensesMonth);
+console.log('Расходы за месяц - ' + appData.expensesMonth);
 console.log(appData.getTargetMonth());
 console.log(appData.getStatusIncome());

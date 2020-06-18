@@ -190,4 +190,3 @@ let additionalExpensestem = document.querySelectorAll('.additional_expenses-item
 let targetAmount = document.querySelectorAll('.target-amount');
 let periodSelect = document.querySelectorAll('.period-select');
 
-console.log(startButton, dataSection, plussBattons,checkBox, additionalIncomeItems, budgetMonthValue, budgetDayValue, additionalIncomeValue, additionalExpensesValue, incomePeriodValue, targetMonthValue, salaryAmount, incomeTitle, incomeAmount, additionalIncomeItem, expensesAmount, additionalExpensestem, targetAmount, periodSelect  );

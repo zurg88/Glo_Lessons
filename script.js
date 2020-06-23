@@ -29,9 +29,6 @@ let periodAmount = document.querySelector('.period-amount');
 let dataBlock = document.querySelector('.data');
 let btnCancel = document.querySelector('#cancel');
 
-let inputCollection = dataBlock.querySelectorAll('input[type=text]');
-let btnCollection = dataBlock.querySelectorAll('.btn_plus');
-
 
 let isNumber = function(n) {
 	return !isNaN(parseFloat(n)) && isFinite(n);
@@ -74,6 +71,15 @@ let appData = {
 		this.getBudget();
 		this.showResult();
 
+		let inputCollection = dataBlock.querySelectorAll('input[type=text]');
+		let btnCollection = dataBlock.querySelectorAll('.btn_plus');
+	
+		toggleDisabled(btnCollection);
+		toggleDisabled(inputCollection);
+	
+		startButton.style.display = 'none';
+		btnCancel.style.display = 'inline-block';
+
 		// appData.getInfoDeposit();
 	 },
 
@@ -86,7 +92,7 @@ let appData = {
 		targetMonthValue.value = this.getTargetMonth();
 		incomePeriodValue.value = this.calcPeriod();
 		periodSelect.addEventListener('change', function() {
-			incomePeriodValue.value = this.calcPeriod();
+			incomePeriodValue.value = appData.calcPeriod();
 		});
 	 },
 
@@ -178,13 +184,14 @@ let appData = {
 	}, 
 
 	getStatusIncome: function (budgetDay) {
-		if (appData.budgetDay >= 1200) {
+
+		if (this.budgetDay >= 1200) {
 			return ('У вас высокий уровень дохода');
-		 } else if ( appData.budgetDay < 1200 && appData.budgetDay >= 600 ) {
+		 } else if ( this.budgetDay < 1200 && this.budgetDay >= 600 ) {
 			return 'У вас средний уровень дохода';
-		 } else if (appData.budgetDay < 0) {
+		 } else if (this.budgetDay < 0) {
 			return 'Беги, братан... Беги...';
-		 } else if (appData.budgetDay <= 600) {
+		 } else if (this.budgetDay <= 600) {
 			return 'К сожалению у вас уровень дохода ниже среднего';
 		 } else {
 			 return 'Что-то пошло не так';
@@ -192,18 +199,17 @@ let appData = {
 	},
 
 	getInfoDeposit: function() {
-		if(appData.deposit) {
+		if(this.deposit) {
 			
+			do  {
+				this.percentDeposit = prompt('какой годовой процент', '6');
+			}
+			while( !isNumber(this.percentDeposit) ); 
 
 			do  {
-				appData.percentDeposit = prompt('какой годовой процент', '6');
+				this.moneyDeposit = prompt('какая сумма заложена', '10000');
 			}
-			while( !isNumber(appData.percentDeposit) ); 
-
-			do  {
-				appData.moneyDeposit = prompt('какая сумма заложена', '10000');
-			}
-			while( !isNumber(appData.moneyDeposit) ); 
+			while( !isNumber(this.moneyDeposit) ); 
 
 			
 		}
@@ -215,7 +221,27 @@ let appData = {
 
 	changePeriodTitle: function() {
 		periodAmount.innerHTML = periodSelect.value;
+	},
+
+	reset: function() {
+		let inputCollection = document.querySelectorAll('input[type=text]');
+		let btnCollection = document.querySelectorAll('.btn_plus');
+
+		inputCollection.forEach(function(item) {
+			item.value = '';
+		});
+
+		toggleDisabled(btnCollection);
+		toggleDisabled(inputCollection);
+
+		startButton.style.display = 'inline-block';
+		this.style.display = 'none';
+
+		expensesPlus.style.display = 'inline-block';
+		incomePlus.style.display = 'inline-block';
+		
 	}
+
 };
 
 
@@ -230,47 +256,16 @@ setInterval(function() {
 }, 100);
 
 
-startButton.addEventListener('click', function() {
-	appData.start();
-	
-	let inputCollection = dataBlock.querySelectorAll('input[type=text]');
-	let btnCollection = dataBlock.querySelectorAll('.btn_plus');
-	inputCollection.forEach(function(item) {
-		item.disabled = 'true';
-	});
+startButton.addEventListener('click', appData.start.bind(appData));
 
-	btnCollection.forEach(function(item) {
-		item.disabled = 'true';
-	});
+expensesPlus.addEventListener('click', appData.addExpensesBlock);
+incomePlus.addEventListener('click', appData.addIncomeBlock);
+periodSelect.addEventListener('input', appData.changePeriodTitle);
+btnCancel.addEventListener('click', appData.reset);
 
-	this.style.display = 'none';
-	btnCancel.style.display = 'inline-block';
-});
-
-btnCancel.addEventListener('click', function() {
-	
-
-	let inputCollection = dataBlock.querySelectorAll('input[type=text]');
-	let btnCollection = dataBlock.querySelectorAll('.btn_plus');
-
-	this.style.display = 'none';
-	startButton.style.display = 'inline-block';
-
-	toggleDisabled(btnCollection);
-	toggleDisabled(inputCollection);
-
-
-	salaryAmount.value = '';
-	appData.start();
-});
 
 function toggleDisabled(items) {
 	items.forEach(function(item) {
 		item.disabled = !item.disabled;
 	});
 }
-
-
-expensesPlus.addEventListener('click', appData.addExpensesBlock);
-incomePlus.addEventListener('click', appData.addIncomeBlock);
-periodSelect.addEventListener('input', appData.changePeriodTitle);

@@ -239,6 +239,17 @@ let appData = {
 
 		expensesPlus.style.display = 'inline-block';
 		incomePlus.style.display = 'inline-block';
+
+		if(expensesItems.length > 1) {
+			for (let i = 0; i < expensesItems.length; i++) {
+			 if(expensesItems.length === 2) {
+				 return;
+			 } else {
+				 expensesItems[i].remove();
+			 }
+				
+			}
+			}
 		
 	}
 

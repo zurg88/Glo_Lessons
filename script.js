@@ -245,23 +245,23 @@ let appData = {
 		}
 
 		startButton.style.display = 'inline-block';
-		this.style.display = 'none';
+		btnCancel.style.display = 'none';
 
 		expensesPlus.style.display = 'inline-block';
 		incomePlus.style.display = 'inline-block';
 
-		 appData.income = {};
-		 appData.incomeMonth = 0;
-		 appData.addIncome = [];
-		 appData.expenses = {};
-		 appData.addExpenses = [];
-		 appData.budget = 0;
-		 appData.budgetDay = 0;
-		 appData.budgetMonth = 0;
-		 appData.expensesMonth = 0;
-		 appData.deposit = true;
-		 appData.percentDeposit = 0;
-		 appData.moneyDeposit = 0;
+		 this.income = {};
+		 this.incomeMonth = 0;
+		 this.addIncome = [];
+		 this.expenses = {};
+		 this.addExpenses = [];
+		 this.budget = 0;
+		 this.budgetDay = 0;
+		 this.budgetMonth = 0;
+		 this.expensesMonth = 0;
+		 this.deposit = true;
+		 this.percentDeposit = 0;
+		 this.moneyDeposit = 0;
 		
 	}
 
@@ -284,7 +284,7 @@ startButton.addEventListener('click', appData.start.bind(appData));
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 periodSelect.addEventListener('input', appData.changePeriodTitle);
-btnCancel.addEventListener('click', appData.reset);
+btnCancel.addEventListener('click', appData.reset.bind(appData));
 
 
 function toggleDisabled(items) {

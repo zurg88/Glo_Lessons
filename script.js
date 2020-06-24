@@ -234,22 +234,21 @@ let appData = {
 		toggleDisabled(btnCollection);
 		toggleDisabled(inputCollection);
 
+		for (let i = 0; i < incomeItems.length; i++) {
+			if(i !== 0) incomeItems[i].remove();
+			
+		}
+		
+		for (let i = 0; i < incomeItems.length; i++) {
+			if(i !== 0) expensesItems[i].remove();
+			
+		}
+
 		startButton.style.display = 'inline-block';
 		this.style.display = 'none';
 
 		expensesPlus.style.display = 'inline-block';
 		incomePlus.style.display = 'inline-block';
-
-		if(expensesItems.length > 1) {
-			for (let i = 0; i < expensesItems.length; i++) {
-			 if(expensesItems.length === 2) {
-				 return;
-			 } else {
-				 expensesItems[i].remove();
-			 }
-				
-			}
-			}
 		
 	}
 

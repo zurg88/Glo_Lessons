@@ -249,19 +249,6 @@ let appData = {
 
 		expensesPlus.style.display = 'inline-block';
 		incomePlus.style.display = 'inline-block';
-
-		 appData.income = {};
-		 appData.incomeMonth = 0;
-		 appData.addIncome = [];
-		 appData.expenses = {};
-		 appData.addExpenses = [];
-		 appData.budget = 0;
-		 appData.budgetDay = 0;
-		 appData.budgetMonth = 0;
-		 appData.expensesMonth = 0;
-		 appData.deposit = true;
-		 appData.percentDeposit = 0;
-		 appData.moneyDeposit = 0;
 		
 	}
 

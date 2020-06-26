@@ -52,14 +52,14 @@ const AppData = function() {
 	this.budget = 0;
 	this.budgetDay = 0;
 	this.budgetMonth = 0;
-	this.expensesMont = 0;
+	this.expensesMonth = 0;
 	this.deposit = true;
 	this.percentDeposit = 0;
 	this.moneyDeposit = 0;
-}
+};
 
 
-const appData = new AppData;
+const appData = new AppData();
 
 AppData.prototype.start = function() {
 
@@ -178,6 +178,7 @@ AppData.prototype.getBudget = function () {
 		
 	this.budgetMonth = this.budget + this.incomeMonth - this.expensesMonth; 
 	this.budgetDay = Math.floor(this.budgetMonth / 30);
+	console.log(this.expensesMonth);
 };
 
 AppData.prototype.getTargetMonth = function () {

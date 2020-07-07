@@ -92,6 +92,7 @@ let appData = {
 		if(expensesItems.length === 3) {
 			expensesPlus.style.display = 'none';
 		}
+		appData.validationForm();
 	 },
 
 	 addIncomeBlock: function() {
@@ -102,6 +103,7 @@ let appData = {
 		if(incomeItems.length === 3) {
 			incomePlus.style.display = 'none';
 		}
+		appData.validationForm();
 	 },
 
 	 getExpenses: function() {
@@ -210,6 +212,22 @@ let appData = {
 
 	changePeriodTitle: function() {
 		periodAmount.innerHTML = periodSelect.value;
+	},
+
+	validationForm: function() {
+		const inputNum = document.querySelectorAll('input[placeholder="Сумма"]');
+		const inputRu = document.querySelectorAll('input[placeholder="Наименование"]');
+		inputNum.forEach((item) => {
+			item.addEventListener('keyup', () => {
+				item.value = item.value.replace(/[^\d]/g, '');
+			});
+		});
+		
+		inputRu.forEach((item) => {
+			item.addEventListener('keyup', () => {
+				item.value = item.value.replace(/[^?!,.а-яА-ЯёЁ\s]/, '');
+			});
+		});
 	}
 };
 
@@ -242,7 +260,7 @@ setInterval(function() {
 	}
 }, 100);
 
-
+appData.validationForm();
 startButton.addEventListener('click', appData.start);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
 incomePlus.addEventListener('click', appData.addIncomeBlock);
